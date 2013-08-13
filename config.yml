@@ -1,0 +1,12 @@
+jobs: 
+    - Unemployed
+    - Lumberjack
+    - Miner
+    - Farmer
+    - Hunter
+party:
+    default-slots: 3
+    max-slots: 1000
+    share-self: 70
+    share-others: 30
+    radius: 25

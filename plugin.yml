@@ -1,0 +1,30 @@
+    name: EJob
+    main: me.ehudblum.ejob.EJob
+    version: 1.0
+    
+    depends: [Vault,EConomy,WorldGuard]
+    commands:
+     job:
+       description: Shows your balance.
+       usage: /<command> 
+       permission: ejob.job
+       permission-message: 'Unknown command. Type "/help" for help.'
+     party:
+       description: Shows your balance.
+       usage: /<command> 
+       permission: ejob.party
+       permission-message: 'Unknown command. Type "/help" for help.'
+    permissions:
+      ejob.*:
+        description: gives access to all money permission.
+        children:
+          ejob.job.*: true
+          ejob.party.*: true
+      ejob.job:
+        description: gives access to money command.
+        default: true
+      ejob.party:
+        description: gives access to op commands.
+        default: true
+
+          
