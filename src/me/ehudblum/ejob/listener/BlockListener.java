@@ -4,6 +4,7 @@ import me.ehudblum.ejob.EJob;
 import me.ehudblum.ejob.api.Job2WG;
 
 import org.bukkit.Material;
+import org.bukkit.TreeSpecies;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -22,7 +23,7 @@ public class BlockListener implements Listener
 			Block b = event.getBlock();
 			if(Job2WG.canBuild(p, b.getLocation()))
 			{
-				if(EJob.getData().onBlockBreak(p.getName(), b.getTypeId(), b.getData()))
+				if(EJob.getData().onBlockBreak(p.getName(), b.getType()))
 				{
 					if(p.getItemInHand().getType().getMaxDurability() > 0)
 					{
@@ -32,7 +33,7 @@ public class BlockListener implements Listener
 							p.setItemInHand(null);
 						}
 					}
-					b.setTypeIdAndData(Material.AIR.getId(), (byte) 0, true);
+					b.setType(Material.AIR);
 					event.setExpToDrop(0);
 					event.setCancelled(true);
 				}

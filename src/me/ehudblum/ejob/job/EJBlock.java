@@ -1,30 +1,26 @@
 package me.ehudblum.ejob.job;
 
+import org.bukkit.Material;
+
 public class EJBlock
 {
-	private int id;
+	private Material mat;
 	private double exp;
-	private int data;
 	
-	public EJBlock(int id, double exp, int data)
+	public EJBlock(double exp, String name)
 	{
-		this.id = id;
 		this.exp = exp;
-		this.data = data;
+		this.mat = Material.getMaterial(name);
 	}
 	
-	public int getId()
-	{
-		return this.id;
-	}
 	
 	public double getExpForBlock()
 	{
 		return this.exp;
 	}
-	
-	public int getData()
+		
+	public Material getMaterial()
 	{
-		return this.data;
+		return this.mat;
 	}
 }

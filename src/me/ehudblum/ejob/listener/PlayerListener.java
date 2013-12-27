@@ -77,7 +77,7 @@ public class PlayerListener implements Listener
 						if(attacker != null && attacker instanceof Player)
 						{
 							Player p = (Player) attacker;
-							String mobName = defender.getType().getName();
+							String mobName = defender.getType().name();
 							if(defender instanceof Zombie && ((Zombie)defender).isVillager())
 							{
 								mobName = "ZombieVillager";

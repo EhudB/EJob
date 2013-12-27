@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import me.ehudblum.ejob.util.formulaSolver;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 
 public class Job
 {
@@ -80,26 +81,18 @@ public class Job
 		return false;
 	}
 	
-	public boolean isBlockToJob(int id)
+	public boolean isBlockToJob(Material material)
 	{
 		for(EJBlock block : blocks)
-			if(block.getId() ==  id)
+			if(block.getMaterial() == material)
 				return true;
 		return false;
 	}
 	
-	public EJBlock getBlock(int id)
+	public EJBlock getBlock(Material material)
 	{
 		for(EJBlock block : blocks)
-			if(block.getId() ==  id)
-				return block;
-		return null;
-	}
-	
-	public EJBlock getBlock(int id, int data)
-	{
-		for(EJBlock block : blocks)
-			if(block.getId() ==  id && block.getData() == data)
+			if(block.getMaterial() == material)
 				return block;
 		return null;
 	}

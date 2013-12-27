@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -170,10 +171,9 @@ public class EData
 		ArrayList<EJBlock> blocks = new ArrayList<EJBlock>();
 		for(String key : blocksSection.getKeys(false)){
 			ConfigurationSection blockSection = blocksSection.getConfigurationSection(key);
-			int id = blockSection.getInt("id");
 			double exp = blockSection.getDouble("exp");
-			int data = blockSection.getInt("data");
-			blocks.add( new EJBlock(id, exp, data) );
+			String name = blockSection.getString("name");
+			blocks.add( new EJBlock(exp, name) );
 		}
 		return blocks;
 	}
@@ -377,11 +377,11 @@ public class EData
 		return false;
 	}
 	
-	public boolean onBlockBreak(String playerName, int id, int data)
+	public boolean onBlockBreak(String playerName, Material material)
 	{
 		EPlayer player = getPlayer(playerName);
 		if(player != null)
-			return player.breakBlock(id,data);
+			return player.breakBlock(material);
 		return false;
 	}
 	

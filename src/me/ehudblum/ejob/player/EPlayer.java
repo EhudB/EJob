@@ -2,6 +2,8 @@ package me.ehudblum.ejob.player;
 
 import java.io.IOException;
 
+import org.bukkit.Material;
+
 import me.ehudblum.ejob.EJob;
 import me.ehudblum.ejob.job.EJBlock;
 import me.ehudblum.ejob.job.EJMob;
@@ -134,9 +136,9 @@ public class EPlayer
 		return false;
 	}
 	
-	public boolean breakBlock(int id, int data)
+	public boolean breakBlock(Material material)
 	{
-		EJBlock block = this.getPlayerJob().getJob().getBlock(id, data);
+		EJBlock block = this.getPlayerJob().getJob().getBlock(material);
 		if(block != null)
 		{
 			if(this.hasActiveJob())

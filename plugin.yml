@@ -2,7 +2,7 @@
     main: me.ehudblum.ejob.EJob
     version: 1.0
     
-    depends: [Vault,EConomy,WorldGuard]
+    depends: [Vault,WorldGuard]
     commands:
      job:
        description: Shows your balance.

@@ -2,8 +2,7 @@ package me.ehudblum.ejob.player;
 
 import org.bukkit.Bukkit;
 
-import me.ehudblum.economy.EConomy;
-import me.ehudblum.economy.player.ECPlayer;
+import me.ehudblum.ejob.api.Job2Vault;
 import me.ehudblum.ejob.event.player.EJExpAddEvent;
 import me.ehudblum.ejob.event.player.EJLevelUpEvent;
 import me.ehudblum.ejob.job.Job;
@@ -122,10 +121,6 @@ public class EPlayerJob
 	
 	public void giveRewards(double balance)
 	{
-		ECPlayer player = EConomy.getData().getPlayer(this.getPlayer().getName());
-		if(player != null)
-		{
-			EConomy.getData().depositPlayer(player, balance);
-		}
+		Job2Vault.depositPlayer(player.getName(), balance);
 	}
 }
